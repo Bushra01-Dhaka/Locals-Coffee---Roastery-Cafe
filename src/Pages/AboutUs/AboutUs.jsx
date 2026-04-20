@@ -1,4 +1,4 @@
-import cafeSign from "../../assets/3.jpg";
+import cafeSign from "../../assets/3.png";
 
 const AboutUs = () => {
   return (
@@ -9,9 +9,9 @@ const AboutUs = () => {
         <div 
         data-aos="fade-up" data-aos-offset="200" data-aos-easing="ease-in-out" data-aos-duration="1000"
         className="flex-1">
-          <h2 className="text-3xl font-style pt-20 lg:text-6xl font-bold uppercase">
+          <h1 className="text-5xl font-style pt-20 lg:text-6xl  uppercase">
             Our Opening Hours
-          </h2>
+          </h1>
           <p className="py-4  uppercase">
             We are open every day. Thank you for your continued support!
           </p>

@@ -1,6 +1,6 @@
 import logo from "../assets/logo.webp";
 import bannerImg from "../assets/2.jpg";
-import cafePhoto from "../assets/3.jpg";
+import cafePhoto from "../assets/3.png";
 import cafeOutdoorPhoto from "../assets/7.jpg";
 import { MdArrowOutward } from "react-icons/md";
 
@@ -37,13 +37,13 @@ const Banner = () => {
       <div 
       data-aos="fade-up" data-aos-offset="200" data-aos-easing="ease-in-out" data-aos-duration="1200"
       className="absolute bg-yellow-950 top-80 lg:left-0 z-3 ">
-        <h2 className="text-2xl p-4 lg:p-6 lg:text-5xl font-bold uppercase lg:w-[700px] text-center mx-auto lg:text-start pt-20  text-white lg:pt-20 lg:leading-[1.2] font-style">
+        <h2 className="text-3xl p-4 lg:p-6 lg:text-5xl  uppercase lg:w-[700px] text-center mx-auto lg:text-start pt-20  text-white lg:pt-20 lg:leading-[1.2] font-style">
           We are open! <br />
           Come try our express drive-thru <br />
           <span className=""> 800 E. WILLOW GROVE AVE</span>
         </h2>
           <div className="py-4 flex justify-start pl-6">
-            <button className="btn hover:bg-white hover:text-black transition-all duration-150 cursor-pointer rounded-full text-xl uppercase btn-outline mb-4">
+            <button className="btn hover:bg-white hover:text-black transition-all duration-150 cursor-pointer rounded-full text-xl mx-auto uppercase btn-outline mb-4">
              Order Online <MdArrowOutward className="inline text-xl" />
             </button>
           </div>
