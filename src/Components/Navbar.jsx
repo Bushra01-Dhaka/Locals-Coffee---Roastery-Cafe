@@ -11,11 +11,7 @@ const Navbar = () => {
       <div className="max-w-6xl mx-auto flex justify-between items-center px-4 py-4">
         {/* Logo */}
         <Link className="bg-white w-[80px] h-[80px] rounded-full flex justify-center" href="/">
-          {/* <p className="text-lg lg:text-2xl font-extrabold">
-            <span className="bg-gradient-to-r from-green-500 to-purple-800 bg-clip-text text-transparent uppercase">
-              Civic.Ai
-            </span>
-          </p> */}
+          
           <img className="w-[50px] h-[50px] object-fill mt-4" src={logo} alt="" />
         </Link>
 

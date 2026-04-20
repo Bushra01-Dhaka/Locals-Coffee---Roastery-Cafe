@@ -6,3 +6,16 @@
 .font-style{
     font-family: "Bebas Neue", sans-serif;
 }
+
+@keyframes spinSlow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.spin-slow {
+  animation: spinSlow 12s linear infinite;
+}

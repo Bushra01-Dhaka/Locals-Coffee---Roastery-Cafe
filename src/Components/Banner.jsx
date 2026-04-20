@@ -13,16 +13,21 @@ const Banner = () => {
       }}
     >
       <div>
-        <div>
-          <div 
-          data-aos="flip-left" data-aos-offset="200" data-aos-easing="ease-in-out" data-aos-duration="1000"
-          className="bg-white relative z-10 shadow-2xl shadow-black  rounded-full w-[300px] h-[300px]">
-            <img className="mx-auto pt-10 p-4" src={logo} alt="" />
+        <div className="relative w-[320px] h-[320px] flex items-center justify-center z-20">
+          {/* Spinning ring (bigger) */}
+          <div className="absolute inset-0 rounded-full border-[6px] border-white/20 border-t-white spin-slow z-10"></div>
+
+          {/* White circle (smaller) */}
+          <div
+            data-aos="flip-left"
+            className="bg-white relative z-20 shadow-2xl shadow-black rounded-full w-[260px] h-[260px] flex items-center justify-center"
+          >
+            <img className="w-[70%]" src={logo} alt="" />
           </div>
         </div>
       </div>
 
-      <div className="hidden lg:block absolute right-5 top-50">
+      <div className="hidden lg:block absolute right-5 top-50 ">
         <img className=" w-[400px]" src={cafePhoto} alt="" />
       </div>
 
@@ -34,22 +39,24 @@ const Banner = () => {
         />
       </div>
 
-      <div 
-      data-aos="fade-up" data-aos-offset="200" data-aos-easing="ease-in-out" data-aos-duration="1200"
-      className="absolute bg-yellow-950 top-80 lg:left-0 z-3 ">
+      <div
+        data-aos="fade-up"
+        data-aos-offset="200"
+        data-aos-easing="ease-in-out"
+        data-aos-duration="1200"
+        className="absolute bg-yellow-950 top-80 lg:left-0 z-3 "
+      >
         <h2 className="text-3xl p-4 lg:p-6 lg:text-5xl  uppercase lg:w-[700px] text-center mx-auto lg:text-start pt-20  text-white lg:pt-20 lg:leading-[1.2] font-style">
           We are open! <br />
           Come try our express drive-thru <br />
           <span className=""> 800 E. WILLOW GROVE AVE</span>
         </h2>
-          <div className="py-4 flex justify-start pl-6">
-            <button className="btn hover:bg-white hover:text-black transition-all duration-150 cursor-pointer rounded-full text-xl mx-auto uppercase btn-outline mb-4">
-             Order Online <MdArrowOutward className="inline text-xl" />
-            </button>
-          </div>
+        <div className="py-4 flex justify-start pl-6">
+          <button className="btn hover:bg-white hover:text-black transition-all duration-150 cursor-pointer rounded-full text-xl mx-auto uppercase btn-outline mb-4">
+            Order Online <MdArrowOutward className="inline text-xl" />
+          </button>
+        </div>
       </div>
-
-
     </div>
   );
 };
