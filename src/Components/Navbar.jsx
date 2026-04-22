@@ -18,18 +18,18 @@ const Navbar = () => {
         {/* Desktop Menu */}
         <div className="hidden uppercase md:flex items-center gap-6 font-medium">
           <Link
-            href="/complaintForm"
+            to="/complaintForm"
             className="hover:text-yellow-800 transition"
           >
             Gift Cards
           </Link>
-          <Link href="/dashboard" className="hover:text-yellow-800 transition">
+          <Link to="/dashboard" className="hover:text-yellow-800 transition">
             Catering
           </Link>
-           <Link href="/dashboard" className="hover:text-yellow-800 transition">
+           <Link to="/contactUs" className="hover:text-yellow-800 transition">
             Contact Us
           </Link>
-           <Link href="/dashboard" className="hover:text-yellow-800 transition">
+           <Link to="/dashboard" className="hover:text-yellow-800 transition">
             Announcements
           </Link>
         </div>
@@ -46,28 +46,28 @@ const Navbar = () => {
       {open && (
         <div className="md:hidden uppercase bg-black/80 backdrop-blur-md px-4 py-10 pb-10 space-y-3 text-center">
           <Link
-            href="/complaintForm"
+            to="/complaintForm"
             className="block py-2 hover:text-yellow-800"
             onClick={() => setOpen(false)}
           >
             Gift Cards
           </Link>
           <Link
-            href="/dashboard"
+            to="/dashboard"
             className="block py-2 hover:text-yellow-800"
             onClick={() => setOpen(false)}
           >
             Catering
           </Link>
            <Link
-            href="/dashboard"
+            to="/contactUs"
             className="block py-2 hover:text-yellow-800"
             onClick={() => setOpen(false)}
           >
             Contact Us
           </Link>
            <Link
-            href="/dashboard"
+            to="/dashboard"
             className="block py-2 hover:text-yellow-800"
             onClick={() => setOpen(false)}
           >
