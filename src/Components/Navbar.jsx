@@ -23,7 +23,7 @@ const Navbar = () => {
           >
             Gift Cards
           </Link>
-          <Link to="/dashboard" className="hover:text-yellow-800 transition">
+          <Link to="/catering" className="hover:text-yellow-800 transition">
             Catering
           </Link>
            <Link to="/contactUs" className="hover:text-yellow-800 transition">
@@ -53,7 +53,7 @@ const Navbar = () => {
             Gift Cards
           </Link>
           <Link
-            to="/dashboard"
+            to="/catering"
             className="block py-2 hover:text-yellow-800"
             onClick={() => setOpen(false)}
           >
