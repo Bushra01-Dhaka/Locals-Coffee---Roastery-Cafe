@@ -1,22 +1,26 @@
 import React from "react";
 import cateringImg from "../../assets/17.png";
 import { MdArrowOutward } from "react-icons/md";
+import TestimonialSection from "../TestimonialSection/TestimonialSection";
 
 const CateringSection = () => {
   return (
     <section
-      className="relative min-h-[100vh] flex items-center justify-center px-6 md:px-10 lg:px-16"
+      className="relative min-h-[100vh] bg-fixed  px-6 md:px-10 lg:px-16"
       style={{
         backgroundImage: `url(${cateringImg})`,
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}
     >
-      {/* Dark overlay for readability */}
-      <div className="absolute inset-0 bg-black/70"></div>
+      <div>
+        {/* Dark overlay for readability */}
+      {/* <div className="absolute inset-0 bg-black/70"></div> */}
 
       {/* Floating content card */}
-      <div className="relative z-10 max-w-3xl text-center my-20 bg-black/80 backdrop-blur-md p-8 md:p-12 rounded-2xl border border-white/10 shadow-[0_20px_60px_rgba(0,0,0,0.6)]">
+      <div 
+      data-aos="zoom-in" data-aos-offset="200" data-aos-easing="ease-in-out" data-aos-duration="1000"
+      className="relative z-10 max-w-3xl text-center my-20 bg-black/80 backdrop-blur-md p-8 md:p-12 rounded-2xl border border-white/10 shadow-[0_20px_60px_rgba(0,0,0,0.6)]">
         <span className="mb-4 inline-block text-sm uppercase tracking-[0.3em] text-white/60">
           Catering Service
         </span>
@@ -41,6 +45,13 @@ const CateringSection = () => {
           <MdArrowOutward className="ml-2 inline text-xl transition group-hover:translate-x-1 group-hover:-translate-y-1" />
         </button>
       </div>
+      </div>
+
+      {/* testimonial section */}
+      <div>
+        <TestimonialSection/>
+      </div>
+
     </section>
   );
 };

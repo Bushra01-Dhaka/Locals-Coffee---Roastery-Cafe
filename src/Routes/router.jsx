@@ -4,6 +4,7 @@ import { Children, Component } from "react";
 import Home from "../Pages/Home/Home";
 import AboutUs from "../Pages/AboutUs/AboutUs";
 import CateringSection from "../Pages/CateringSection/CateringSection";
+import TestimonialSection from "../Pages/TestimonialSection/TestimonialSection";
 
 const router = createBrowserRouter([
   {
@@ -21,6 +22,10 @@ const router = createBrowserRouter([
     {
       path:"/catering",
       Component: CateringSection,
+    },
+    {
+      path:"/testimonial",
+      Component: TestimonialSection,
     }
   ]
   },

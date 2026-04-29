@@ -1,0 +1,103 @@
+{
+  "categories": [
+    {
+      "id": "drinks",
+      "name": "Drinks",
+      "items": [
+        {
+          "id": 1,
+          "name": "Latte",
+          "price": 4.5,
+          "hasOptions": true,
+          "options": {
+            "milk": ["Whole", "Almond", "Oat", "Soy"],
+            "size": ["Small", "Medium", "Large"]
+          }
+        },
+        {
+          "id": 2,
+          "name": "Cappuccino",
+          "price": 4.5,
+          "hasOptions": true
+        },
+        {
+          "id": 3,
+          "name": "Cold Brew",
+          "price": 3.75
+        },
+        {
+          "id": 4,
+          "name": "Coconut Dream Latte",
+          "price": 4.75,
+          "tag": "seasonal"
+        }
+      ]
+    },
+
+    {
+      "id": "food",
+      "name": "Food",
+      "items": [
+        {
+          "id": 101,
+          "name": "Egg & Cheese Sandwich",
+          "price": 5.75,
+          "hasOptions": true,
+          "options": {
+            "bread": ["Bagel", "Toast"],
+            "protein": ["Bacon", "Sausage", "Chicken Sausage", "Pork Roll"]
+          }
+        },
+        {
+          "id": 102,
+          "name": "Salmon Bagel",
+          "price": 10.5
+        },
+        {
+          "id": 103,
+          "name": "Muffin",
+          "price": 4.0
+        }
+      ]
+    },
+
+    {
+      "id": "snacks",
+      "name": "Snacks / Bottled Drinks",
+      "items": [
+        {
+          "id": 201,
+          "name": "Chocolate Milk",
+          "price": 2.0
+        },
+        {
+          "id": 202,
+          "name": "Orange Juice",
+          "price": 3.0
+        },
+        {
+          "id": 203,
+          "name": "Hash Browns",
+          "price": 1.5
+        }
+      ]
+    },
+
+    {
+      "id": "coffee",
+      "name": "Fresh Roasted Coffee",
+      "items": [
+        {
+          "id": 301,
+          "name": "Dark Roast (1lb)",
+          "price": 15
+        },
+        {
+          "id": 302,
+          "name": "Medium Roast (1lb)",
+          "price": 15
+        }
+      ]
+    }
+  ]
+}
