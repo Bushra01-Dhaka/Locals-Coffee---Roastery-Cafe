@@ -3,7 +3,7 @@ import logo from "../assets/logo.webp";
 
 const Footer = () => {
   return (
-    <div className="bg-black/80 backdrop-blur-md border-t border-white/10 ">
+    <div className="relative z-20 bg-black/80 backdrop-blur-md border-t border-white/10 ">
       <div className="max-w-6xl mx-auto px-4 py-10">
         {/* Top Section */}
         <div className="flex flex-col md:flex-row justify-between items-center md:items-start gap-8">

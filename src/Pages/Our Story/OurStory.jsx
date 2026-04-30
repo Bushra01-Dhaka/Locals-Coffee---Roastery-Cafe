@@ -6,7 +6,7 @@ import { IoFastFoodOutline } from "react-icons/io5";
 
 const OurStory = () => {
   return (
-    <div className="flex justify-center items-center min-h-screen lg:py-20 lg:px-20 px-10 ">
+    <div className="flex justify-start lg:justify-center items-center min-h-screen lg:py-20 lg:px-20 px-10 ">
       <div>
         <div 
         data-aos="zoom-in" data-aos-offset="200" data-aos-easing="ease-in-out" data-aos-duration="1000"

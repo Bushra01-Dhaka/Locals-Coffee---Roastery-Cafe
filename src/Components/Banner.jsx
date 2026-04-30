@@ -3,6 +3,7 @@ import bannerImg from "../assets/2.jpg";
 import cafePhoto from "../assets/3.png";
 import cafeOutdoorPhoto from "../assets/7.jpg";
 import { MdArrowOutward } from "react-icons/md";
+import { Link } from "react-router";
 
 const Banner = () => {
   return (
@@ -52,9 +53,11 @@ const Banner = () => {
           <span className=""> 800 E. WILLOW GROVE AVE</span>
         </h2>
         <div className="py-4 flex justify-start pl-6">
-          <button className="btn hover:bg-white hover:text-black transition-all duration-150 cursor-pointer rounded-full text-xl mx-auto uppercase btn-outline mb-4">
-            Order Online <MdArrowOutward className="inline text-xl" />
-          </button>
+          <Link to="/orderMenus">
+            <button className="btn hover:bg-white hover:text-black transition-all duration-150 cursor-pointer rounded-full text-xl mx-auto uppercase btn-outline mb-4">
+              Order Online <MdArrowOutward className="inline text-xl" />
+            </button>
+          </Link>
         </div>
       </div>
     </div>

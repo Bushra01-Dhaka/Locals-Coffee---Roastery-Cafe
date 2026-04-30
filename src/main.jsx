@@ -8,6 +8,7 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 AOS.init();
 
+
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <div className='md:max-w-screen-2xl mx-auto bg-black'>

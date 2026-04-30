@@ -5,6 +5,7 @@ import Home from "../Pages/Home/Home";
 import AboutUs from "../Pages/AboutUs/AboutUs";
 import CateringSection from "../Pages/CateringSection/CateringSection";
 import TestimonialSection from "../Pages/TestimonialSection/TestimonialSection";
+import MenuPage from "../Pages/MenuPage/MenuPage";
 
 const router = createBrowserRouter([
   {
@@ -26,6 +27,10 @@ const router = createBrowserRouter([
     {
       path:"/testimonial",
       Component: TestimonialSection,
+    },
+    {
+      path:"/orderMenus",
+      Component: MenuPage,
     }
   ]
   },
