@@ -1,5 +1,6 @@
 import cafeSign from "../../assets/3.png";
 import SubscribeNow from "../../Components/SubscribeNow";
+import LocationsSection from "../LocationsSection/LocationsSection";
 
 const AboutUs = () => {
   return (
@@ -66,6 +67,7 @@ const AboutUs = () => {
         </div>
 
         {/* <SubscribeNow/> */}
+        <LocationsSection/>
 
       </div>
     </div>

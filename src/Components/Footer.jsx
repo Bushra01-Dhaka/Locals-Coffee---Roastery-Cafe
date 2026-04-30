@@ -36,25 +36,25 @@ const Footer = () => {
               <p className="font-semibold mb-2 uppercase">Quick Links</p>
               <ul className="space-y-1 flex flex-col text-gray-400">
                 <Link
-                  href="/complaintForm"
+                 to="/complaintForm"
                   className="hover:text-yellow-800 transition"
                 >
                   Gift Cards
                 </Link>
                 <Link
-                  href="/dashboard"
+                 to="/catering"
                   className="hover:text-yellow-800 transition"
                 >
                   Catering
                 </Link>
                 <Link
-                  href="/dashboard"
+                 to="/contactUs"
                   className="hover:text-yellow-800 transition"
                 >
                   Contact Us
                 </Link>
                 <Link
-                  href="/dashboard"
+                 to="/dashboard"
                   className="hover:text-yellow-800 transition"
                 >
                   Announcements
@@ -65,12 +65,16 @@ const Footer = () => {
             <div>
               <p className="font-semibold mb-2">Join With</p>
               <ul className="space-y-1 text-gray-400">
+                <Link  to="/subscribeNow">
                 <li className="hover:text-yellow-800 cursor-pointer">
                   Newsletter 
                 </li>
+                </Link>
+                <Link to="/subscribeNow">
                 <li className="hover:text-yellow-800 cursor-pointer">
                   Subscribe Now
                 </li>
+                </Link>
               </ul>
             </div>
           </div>

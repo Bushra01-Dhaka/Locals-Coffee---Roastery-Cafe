@@ -6,6 +6,7 @@ import AboutUs from "../Pages/AboutUs/AboutUs";
 import CateringSection from "../Pages/CateringSection/CateringSection";
 import TestimonialSection from "../Pages/TestimonialSection/TestimonialSection";
 import MenuPage from "../Pages/MenuPage/MenuPage";
+import SubscribeNow from "../Components/SubscribeNow";
 
 const router = createBrowserRouter([
   {
@@ -31,6 +32,10 @@ const router = createBrowserRouter([
     {
       path:"/orderMenus",
       Component: MenuPage,
+    },
+    {
+      path:"/subscribeNow",
+      Component:SubscribeNow,
     }
   ]
   },
