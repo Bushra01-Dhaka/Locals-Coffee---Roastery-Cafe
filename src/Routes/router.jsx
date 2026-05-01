@@ -7,6 +7,7 @@ import CateringSection from "../Pages/CateringSection/CateringSection";
 import TestimonialSection from "../Pages/TestimonialSection/TestimonialSection";
 import MenuPage from "../Pages/MenuPage/MenuPage";
 import SubscribeNow from "../Components/SubscribeNow";
+import GiftCard from "../Pages/GiftCard/GiftCard";
 
 const router = createBrowserRouter([
   {
@@ -36,6 +37,10 @@ const router = createBrowserRouter([
     {
       path:"/subscribeNow",
       Component:SubscribeNow,
+    },
+    {
+      path:"/giftCard",
+      Component: GiftCard,
     }
   ]
   },

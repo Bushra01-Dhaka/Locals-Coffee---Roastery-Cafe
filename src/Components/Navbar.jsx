@@ -18,7 +18,7 @@ const Navbar = () => {
         {/* Desktop Menu */}
         <div className="hidden uppercase md:flex items-center gap-6 font-medium">
           <Link
-            to="/complaintForm"
+            to="/giftCard"
             className="hover:text-yellow-800 transition"
           >
             Gift Cards
@@ -46,7 +46,7 @@ const Navbar = () => {
       {open && (
         <div className="md:hidden uppercase bg-black/80 backdrop-blur-md px-4 py-10 pb-10 space-y-3 text-center">
           <Link
-            to="/complaintForm"
+            to="/giftCard"
             className="block py-2 hover:text-yellow-800"
             onClick={() => setOpen(false)}
           >

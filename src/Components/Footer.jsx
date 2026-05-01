@@ -36,7 +36,7 @@ const Footer = () => {
               <p className="font-semibold mb-2 uppercase">Quick Links</p>
               <ul className="space-y-1 flex flex-col text-gray-400">
                 <Link
-                 to="/complaintForm"
+                 to="/giftCard"
                   className="hover:text-yellow-800 transition"
                 >
                   Gift Cards
