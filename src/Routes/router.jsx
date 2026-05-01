@@ -8,6 +8,7 @@ import TestimonialSection from "../Pages/TestimonialSection/TestimonialSection";
 import MenuPage from "../Pages/MenuPage/MenuPage";
 import SubscribeNow from "../Components/SubscribeNow";
 import GiftCard from "../Pages/GiftCard/GiftCard";
+import Announcement from "../Pages/Announcement/Announcement";
 
 const router = createBrowserRouter([
   {
@@ -41,6 +42,10 @@ const router = createBrowserRouter([
     {
       path:"/giftCard",
       Component: GiftCard,
+    },
+    {
+      path:"/announcement",
+      Component: Announcement
     }
   ]
   },

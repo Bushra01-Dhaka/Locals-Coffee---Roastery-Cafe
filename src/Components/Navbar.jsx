@@ -29,7 +29,7 @@ const Navbar = () => {
            <Link to="/contactUs" className="hover:text-yellow-800 transition">
             Contact Us
           </Link>
-           <Link to="/dashboard" className="hover:text-yellow-800 transition">
+           <Link to="/announcement" className="hover:text-yellow-800 transition">
             Announcements
           </Link>
         </div>
@@ -67,7 +67,7 @@ const Navbar = () => {
             Contact Us
           </Link>
            <Link
-            to="/dashboard"
+            to="/announcement"
             className="block py-2 hover:text-yellow-800"
             onClick={() => setOpen(false)}
           >

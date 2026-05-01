@@ -54,7 +54,7 @@ const Footer = () => {
                   Contact Us
                 </Link>
                 <Link
-                 to="/dashboard"
+                 to="/announcement"
                   className="hover:text-yellow-800 transition"
                 >
                   Announcements
