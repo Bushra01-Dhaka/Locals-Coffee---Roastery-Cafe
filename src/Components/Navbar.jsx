@@ -32,6 +32,12 @@ const Navbar = () => {
            <Link to="/announcement" className="hover:text-yellow-800 transition">
             Announcements
           </Link>
+          <Link
+            to="/login"
+            className="block btn btn-md rounded-full btn-outline py-2 hover:text-yellow-800 hover:bg-white transition"
+          >
+            Login
+          </Link>
         </div>
 
         {/* Mobile Menu Button */}
@@ -72,6 +78,13 @@ const Navbar = () => {
             onClick={() => setOpen(false)}
           >
             Anouncements
+          </Link>
+          <Link
+            to="/login"
+            className="block py-2 hover:text-yellow-800"
+            onClick={() => setOpen(false)}
+          >
+            Login
           </Link>
         </div>
       )}

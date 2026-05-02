@@ -9,6 +9,8 @@ import MenuPage from "../Pages/MenuPage/MenuPage";
 import SubscribeNow from "../Components/SubscribeNow";
 import GiftCard from "../Pages/GiftCard/GiftCard";
 import Announcement from "../Pages/Announcement/Announcement";
+import Login from "../Pages/Login/Login";
+import SignUp from "../Pages/SignUp/SignUp";
 
 const router = createBrowserRouter([
   {
@@ -46,6 +48,14 @@ const router = createBrowserRouter([
     {
       path:"/announcement",
       Component: Announcement
+    },
+    {
+      path:"/login",
+      Component: Login,
+    },
+    {
+      path:"/signUp",
+      Component: SignUp,
     }
   ]
   },

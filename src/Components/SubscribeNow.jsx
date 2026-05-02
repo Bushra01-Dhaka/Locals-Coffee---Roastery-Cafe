@@ -23,7 +23,9 @@ const SubscribeNow = () => {
       <div className="flex flex-col lg:flex-row justify-between items-start gap-20">
 
         {/* left */}
-        <div className="flex-1 w-full pt-10 px-4 lg:px-0 uppercase">
+        <div 
+        data-aos="fade-up" data-aos-offset="200" data-aos-easing="ease-in-out" data-aos-duration="1000"
+        className="flex-1 w-full pt-10 px-4 lg:px-0 uppercase">
             <h2 className="text-4xl lg:text-6xl font-style w-full  mx-auto mb-6">Send us a note!</h2>
           <div className="flex flex-col gap-4 py-4 border-0  w-full  mx-auto">
             <input
