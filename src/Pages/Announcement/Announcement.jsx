@@ -1,36 +1,21 @@
-const announcements = [
-  {
-    title: "Ft. Washington has soup and salads",
-    date: "01/28/2025",
-    description:
-      "Starting Thursday, Ft. Washington will feature salads & soups! See the menu for more details.",
-  },
-  {
-    title: "Wyndmoor & Ft. Washington closed Monday, 1/26",
-    date: "01/26/2025",
-    description: "We will get back to normal Tuesday.",
-  },
-  {
-    title: "Wyndmoor closed Sunday, 1/25",
-    date: "01/25/2025",
-    description:
-      "With the snow, we will be closed today. Stay safe!",
-  },
-  {
-    title: "Both locations closed Monday",
-    date: "01/22/2025",
-    description:
-      "This sounds like a big one...so in anticipation of the coming snowfall, we will close Monday at both locations. We are sorry for the inconvenience - please stay safe and we will see you Tuesday.",
-  },
-  {
-    title: "New location now open",
-    date: "01/12/2025",
-    description:
-      "Our newest location in the Maplewood Office Park is now open. Located at 1300 Virginia Drive in Ft. Washington. You can order ahead and pick up when you get to the office! Open M-F, 8-3.",
-  },
-];
+import { useEffect, useState } from "react";
+
 
 const Announcement = () => {
+
+  const [announcementData, setAnnouncementData] = useState([]);
+
+  useEffect(() => {
+     fetch(`http://localhost:5000/announcement`)
+     .then(res => res.json())
+     .then(data => {
+      setAnnouncementData(data)
+     })
+     .catch(error => {
+      console.log(error)
+     })
+  }, [])
+
   return (
     <section className="bg-black text-white py-20 px-6 md:px-10 lg:px-16">
       
@@ -53,9 +38,9 @@ const Announcement = () => {
         <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-[2px] bg-white/10"></div>
 
         <div className="space-y-12">
-          {announcements.map((item, index) => (
+          {announcementData.map((item, index) => (
             <div
-              key={index}
+              key={item?._id}
               className={`relative flex flex-col md:flex-row ${
                 index % 2 === 0 ? "md:flex-row-reverse" : ""
               } items-start md:items-center gap-6`}
