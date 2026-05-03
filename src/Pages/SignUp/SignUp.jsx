@@ -2,6 +2,9 @@ import { useForm } from "react-hook-form";
 import logo from "../../assets/logo.webp"; // adjust path
 import bgImg from "../../assets/2.jpg"; // your background image
 import { Link } from "react-router";
+import useAuth from "../../Hook/useAuth";
+import useAxios from "../../Hook/useAxios";
+import toast from "react-hot-toast";
 
 const SignUp = () => {
   const {
@@ -10,8 +13,56 @@ const SignUp = () => {
     formState: { errors },
   } = useForm();
 
+  const {createUser} = useAuth();
+  const axiosPublic = useAxios();
+
   const onSubmit = (data) => {
     console.log(data);
+
+    createUser(data.email, data.password).then((result) => {
+      const loggedUser = result.user;
+      console.log("Logged User: ", loggedUser);
+
+      // Update User Info into DB
+      const userInfo = {
+        name: data.name,
+        email: data.email,
+        role: "user",
+        createdAt: new Date().toISOString(),
+      }
+      
+      const userRes = axiosPublic.post(`/user`, userInfo);
+      console.log(userRes.data);
+
+      // update user profile
+      const userProfile = {
+         displayName: data.name,
+         photoURL: data.photo || "https://png.pngtree.com/png-vector/20191009/ourmid/pngtree-user-icon-png-image_1796659.jpg"
+      }
+
+       updateUserProfile(userProfile)
+       .then(() => {
+        console.log("Name and Image are updated");
+        refetch;
+       })
+       .catch(error => {
+        console.error(error)
+       })
+
+       toast("Account Created Successfully!", {
+        style: {
+          borderRadius: "10px",
+          background: "#000",
+          color: "#06B6D4",
+        },
+      });
+
+
+
+    })
+
+
+
   };
 
   return (
@@ -43,6 +94,22 @@ const SignUp = () => {
           </p>
 
           <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+            {/* name */}
+             <div>
+              <input
+                type="text"
+                placeholder="User Name"
+                {...register("name", { required: "User Name is required" })}
+                className="w-full p-3 bg-black border border-white/20 rounded text-white focus:outline-none focus:border-white"
+              />
+              {errors.name && (
+                <p className="text-red-400 text-sm mt-1">
+                  {errors.name.message}
+                </p>
+              )}
+            </div>
+
+
             {/* Email */}
             <div>
               <input
