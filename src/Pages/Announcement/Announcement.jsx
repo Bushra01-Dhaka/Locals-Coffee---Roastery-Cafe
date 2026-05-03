@@ -16,6 +16,7 @@ const Announcement = () => {
      })
   }, [])
 
+  
   return (
     <section className="bg-black text-white py-20 px-6 md:px-10 lg:px-16">
       
