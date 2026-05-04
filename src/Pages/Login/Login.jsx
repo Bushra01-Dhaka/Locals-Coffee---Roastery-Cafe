@@ -1,7 +1,10 @@
 import { useForm } from "react-hook-form";
 import logo from "../../assets/logo.webp"; // adjust path
 import bgImg from "../../assets/2.jpg"; // your background image
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
+import useAxios from "../../Hook/useAxios";
+import useAuth from "../../Hook/useAuth";
+import toast from "react-hot-toast";
 
 const Login = () => {
   const {
@@ -10,8 +13,27 @@ const Login = () => {
     formState: { errors },
   } = useForm();
 
+  const axiosPublic = useAxios();
+  const {logIn} = useAuth();
+  const navigate = useNavigate();
+  const from = location.state?.from || "/";
+
   const onSubmit = (data) => {
     console.log(data);
+
+    logIn(data.email, data.password).then((result) => {
+      const loggedUser = result.user;
+      console.log(loggedUser);
+
+       toast("Logged In Successfully!", {
+        style: {
+          borderRadius: "10px",
+          background: "#000",
+          color: "#fff",
+        },
+      });
+      navigate(from);
+    })
   };
 
   return (
