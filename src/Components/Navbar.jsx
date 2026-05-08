@@ -68,6 +68,13 @@ const Navbar = () => {
                       className="block px-4 py-3 text-sm hover:bg-white hover:text-black transition"
                       onClick={() => setProfileOpen(false)}
                     >
+                     {user?.displayName}
+                    </Link>
+                    <Link
+                      to="/dashboard"
+                      className="block px-4 py-3 text-sm hover:bg-white hover:text-black transition"
+                      onClick={() => setProfileOpen(false)}
+                    >
                       Dashboard
                     </Link>
 

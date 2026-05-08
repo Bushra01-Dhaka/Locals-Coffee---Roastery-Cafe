@@ -1,4 +1,5 @@
 import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router";
 
 const GiftCard = () => {
   const {
@@ -7,9 +8,24 @@ const GiftCard = () => {
     watch,
     formState: { errors },
   } = useForm();
+  const navigate = useNavigate();
 
   const onSubmit = (data) => {
-    console.log("Gift Card Data:", data);
+     const amount = data.customAmount || data.amount;
+
+     const giftCardData = {
+      ...data,
+      amount: Number(amount),
+     }
+
+     navigate("/payment", {
+      state:{
+        giftCard: giftCardData,
+        totalPrice: amount,
+      }
+     })
+
+
   };
 
   const deliveryType = watch("deliveryType");

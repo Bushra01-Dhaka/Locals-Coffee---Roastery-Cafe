@@ -11,6 +11,8 @@ import GiftCard from "../Pages/GiftCard/GiftCard";
 import Announcement from "../Pages/Announcement/Announcement";
 import Login from "../Pages/Login/Login";
 import SignUp from "../Pages/SignUp/SignUp";
+import PrivateRoutes from "./PrivateRoutes";
+import Payment from "../Pages/Payment/Payment";
 
 const router = createBrowserRouter([
   {
@@ -56,6 +58,10 @@ const router = createBrowserRouter([
     {
       path:"/signUp",
       Component: SignUp,
+    },
+    {
+      path:"/payment",
+      element: <PrivateRoutes><Payment></Payment></PrivateRoutes>
     }
   ]
   },

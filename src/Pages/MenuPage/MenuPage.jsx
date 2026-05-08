@@ -1,4 +1,8 @@
 import React, { useEffect, useState } from "react";
+import useAxios from "../../Hook/useAxios";
+import useAuth from "../../Hook/useAuth";
+import { useNavigate } from "react-router";
+import Swal from "sweetalert2";
 
 const MenuPage = () => {
   const [menu, setMenu] = useState([]);
@@ -6,6 +10,9 @@ const MenuPage = () => {
   const [selectedItem, setSelectedItem] = useState(null);
   const [quantity, setQuantity] = useState(1);
   const [cart, setCart] = useState([]);
+  const axiosPublic = useAxios();
+  const { user } = useAuth();
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetch(`http://localhost:5000/menu`)
@@ -26,6 +33,32 @@ const MenuPage = () => {
     setCart([...cart, { ...selectedItem, quantity }]);
     setSelectedItem(null);
     setQuantity(1);
+  };
+
+  const totalPrice = cart.reduce(
+    (total, item) => total + item.price * item.quantity,
+    0,
+  );
+
+  const handleCheckout = async () => {
+    if (!user) {
+      Swal.fire("Please login first");
+      return;
+    }
+
+    if (cart.length === 0) {
+      Swal.fire("Cart is Empty");
+      return;
+    }
+
+     navigate("/payment", {
+    state: {
+      cart,
+      totalPrice,
+    },
+  });
+
+  
   };
 
   return (
@@ -106,8 +139,11 @@ const MenuPage = () => {
 
         {cart.length > 0 && (
           <div className="mt-6">
-            <button className="w-full bg-white text-black py-3 rounded-full">
-              Checkout
+            <button
+              onClick={handleCheckout}
+              className="w-full bg-white text-black py-3 rounded-full"
+            >
+              Checkout (${totalPrice.toFixed(2)})
             </button>
           </div>
         )}
