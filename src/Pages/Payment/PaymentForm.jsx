@@ -8,7 +8,7 @@ import Swal from "sweetalert2";
 
 const PaymentPage = () => {
   const { state } = useLocation();
-  const { cart, totalPrice } = state || {};
+  const { cart, totalPrice, giftCard } = state || {};
 
   const stripe = useStripe();
   const elements = useElements();
@@ -67,6 +67,42 @@ const PaymentPage = () => {
         showConfirmButton: false,
         timer: 1500,
       });
+
+
+
+
+
+      // Giftycard Payment 
+
+      const createdAt = new Date();
+
+  const validUntil = new Date();
+  validUntil.setMonth(validUntil.getMonth() + 1);
+
+  const giftCardPayload = {
+    ...giftCard,
+    email: user?.email,
+    totalPrice,
+    transactionId: paymentIntent.id,
+    createdAt,
+    validUntil,
+  };
+
+  // 🔥 send to backend
+  await axiosSecure.post("/giftcard", giftCardPayload);
+
+  Swal.fire({
+    icon: "success",
+    title: "Gift Card Sent 🎁",
+    timer: 1500,
+    showConfirmButton: false,
+  });
+
+
+
+    //  giftcard payment ends 
+
+
     }
   };
 
