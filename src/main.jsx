@@ -1,20 +1,23 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import './index.css'
+import { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
+import "./index.css";
 
 import { RouterProvider } from "react-router/dom";
-import router from './Routes/router';
-import AOS from 'aos';
-import 'aos/dist/aos.css';
-import AuthProvider from './AuthProvider/AuthProvider';
-import { Toaster } from 'react-hot-toast';
+import router from "./Routes/router";
+import AOS from "aos";
+import "aos/dist/aos.css";
+import AuthProvider from "./AuthProvider/AuthProvider";
+import { Toaster } from "react-hot-toast";
 AOS.init();
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
+const queryClient = new QueryClient();
 
-createRoot(document.getElementById('root')).render(
+createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <AuthProvider>
-       <Toaster
+    <QueryClientProvider client={queryClient}>
+      <AuthProvider>
+        <Toaster
           position="top-center"
           reverseOrder={false}
           toastOptions={{
@@ -26,9 +29,10 @@ createRoot(document.getElementById('root')).render(
             },
           }}
         />
-      <div className='md:max-w-screen-2xl mx-auto bg-black'>
-       <RouterProvider router={router} />
-    </div>
-    </AuthProvider>
-  </StrictMode>
-)
+        <div className="md:max-w-screen-2xl mx-auto bg-black">
+          <RouterProvider router={router} />
+        </div>
+      </AuthProvider>
+    </QueryClientProvider>
+  </StrictMode>,
+);

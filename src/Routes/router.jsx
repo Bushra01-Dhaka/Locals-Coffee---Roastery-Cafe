@@ -15,68 +15,84 @@ import PrivateRoutes from "./PrivateRoutes";
 import Payment from "../Pages/Payment/Payment";
 import LocalCoffeeDashboard from "../Pages/Dashboard/LocalCoffeeDashboard";
 import UserDashboard from "../Pages/Dashboard/UserDashboard";
+import Dashboard from "../Pages/Dashboard/Dashboard";
+import UserDash from "../Components/DashComponent/UserDash";
+import UserOrder from "../Components/DashComponent/UserOrder";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <MainLayout/>,
-    children:[
-    { 
-      path:"/",
-      Component: Home,
-    },
-    {
-      path:"/contactUs",
-      Component: AboutUs,
-    },
-    {
-      path:"/catering",
-      Component: CateringSection,
-    },
-    {
-      path:"/testimonial",
-      Component: TestimonialSection,
-    },
-    {
-      path:"/orderMenus",
-      Component: MenuPage,
-    },
-    {
-      path:"/subscribeNow",
-      Component:SubscribeNow,
-    },
-    {
-      path:"/giftCard",
-      Component: GiftCard,
-    },
-    {
-      path:"/announcement",
-      Component: Announcement
-    },
-    {
-      path:"/login",
-      Component: Login,
-    },
-    {
-      path:"/signUp",
-      Component: SignUp,
-    },
-    {
-      path:"/payment",
-      element: <PrivateRoutes><Payment></Payment></PrivateRoutes>
-    }
-  ]
+    element: <MainLayout />,
+    children: [
+      {
+        path: "/",
+        Component: Home,
+      },
+      {
+        path: "/contactUs",
+        Component: AboutUs,
+      },
+      {
+        path: "/catering",
+        Component: CateringSection,
+      },
+      {
+        path: "/testimonial",
+        Component: TestimonialSection,
+      },
+      {
+        path: "/orderMenus",
+        Component: MenuPage,
+      },
+      {
+        path: "/subscribeNow",
+        Component: SubscribeNow,
+      },
+      {
+        path: "/giftCard",
+        Component: GiftCard,
+      },
+      {
+        path: "/announcement",
+        Component: Announcement,
+      },
+      {
+        path: "/login",
+        Component: Login,
+      },
+      {
+        path: "/signUp",
+        Component: SignUp,
+      },
+      {
+        path: "/payment",
+        element: (
+          <PrivateRoutes>
+            <Payment></Payment>
+          </PrivateRoutes>
+        ),
+      },
+    ],
   },
-  
+
   {
-    path:"/dashboard",
-    Component: LocalCoffeeDashboard,
+    path: "/dashboard",
+    Component: Dashboard,
+    children: [
+      {
+        path: "",
+        Component: UserDash,
+      },
+      {
+        path:"userOrder",
+        Component:UserOrder,
+      }
+    ],
   },
   {
-    path:"/userDashboard",
-    Component: UserDashboard
-  }
-  
+    path: "/userDashboard",
+    Component: UserDashboard,
+  },
 ]);
 
-export default router
+export default router;
