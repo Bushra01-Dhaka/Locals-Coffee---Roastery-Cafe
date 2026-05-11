@@ -13,6 +13,8 @@ import Login from "../Pages/Login/Login";
 import SignUp from "../Pages/SignUp/SignUp";
 import PrivateRoutes from "./PrivateRoutes";
 import Payment from "../Pages/Payment/Payment";
+import LocalCoffeeDashboard from "../Pages/Dashboard/LocalCoffeeDashboard";
+import UserDashboard from "../Pages/Dashboard/UserDashboard";
 
 const router = createBrowserRouter([
   {
@@ -65,7 +67,15 @@ const router = createBrowserRouter([
     }
   ]
   },
- 
+  
+  {
+    path:"/dashboard",
+    Component: LocalCoffeeDashboard,
+  },
+  {
+    path:"/userDashboard",
+    Component: UserDashboard
+  }
   
 ]);
 
