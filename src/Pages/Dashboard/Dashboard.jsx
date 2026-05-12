@@ -27,7 +27,7 @@ const Dashboard = () => {
     },
     {
       name: "Gift Cards",
-      path: "/dashboard/gift-cards",
+      path: "/dashboard/userGiftCard",
       icon: <HiGift size={20} />,
     },
     {

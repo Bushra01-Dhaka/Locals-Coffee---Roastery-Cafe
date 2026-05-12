@@ -2,6 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../Hook/useAxiosSecure";
 import useAuth from "../../Hook/useAuth";
 import { HiOutlineTrash } from "react-icons/hi";
+import Swal from "sweetalert2";
 
 const UserOrder = () => {
   const axiosSecure = useAxiosSecure();
@@ -28,8 +29,17 @@ const UserOrder = () => {
 
   const handleCancelOrder = async (id) => {
     try {
-      await axiosSecure.patch(`/cart/cancel/${id}`);
-      refetch();
+      const res = await axiosSecure.patch(`/cart/cancel/${id}`);
+
+      if (res.data.modifiedCount > 0) {
+        Swal.fire({
+          icon: "success",
+          title: "Order Cancelled",
+          text: "Your order has been cancelled successfully",
+        });
+
+        refetch();
+      }
     } catch (error) {
       console.error(error);
     }
@@ -147,7 +157,7 @@ const UserOrder = () => {
                       {order.status !== "cancelled" && (
                         <button
                           onClick={() => handleCancelOrder(order._id)}
-                          className="bg-red-500/10 hover:bg-red-500/20 text-red-400 p-3 rounded-xl transition"
+                          className="bg-red-500/10 cursor-pointer hover:bg-red-500/20 text-red-400 p-3 rounded-xl transition"
                         >
                           <HiOutlineTrash size={18} />
                         </button>
