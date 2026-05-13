@@ -19,6 +19,7 @@ import Dashboard from "../Pages/Dashboard/Dashboard";
 import UserDash from "../Components/DashComponent/UserDash";
 import UserOrder from "../Components/DashComponent/UserOrder";
 import UserGiftCard from "../Components/DashComponent/userGiftCard";
+import Account from "../Components/DashComponent/Account";
 
 const router = createBrowserRouter([
   {
@@ -91,6 +92,10 @@ const router = createBrowserRouter([
       {
         path: "userGiftCard",
         Component: UserGiftCard,
+      },
+      {
+        path: "account",
+        Component: Account,
       }
     ],
   },

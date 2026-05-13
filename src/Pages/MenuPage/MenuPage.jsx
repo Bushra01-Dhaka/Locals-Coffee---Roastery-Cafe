@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import useAxios from "../../Hook/useAxios";
 import useAuth from "../../Hook/useAuth";
-import { useNavigate } from "react-router";
+import { ScrollRestoration, useNavigate } from "react-router";
 import Swal from "sweetalert2";
 
 const MenuPage = () => {
@@ -43,6 +43,7 @@ const MenuPage = () => {
   const handleCheckout = async () => {
     if (!user) {
       Swal.fire("Please login first");
+      navigate("/login")
       return;
     }
 
@@ -208,6 +209,8 @@ const MenuPage = () => {
           </div>
         </div>
       )}
+
+      <ScrollRestoration/>
     </div>
   );
 };
