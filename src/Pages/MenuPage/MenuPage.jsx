@@ -56,6 +56,7 @@ const MenuPage = () => {
     state: {
       cart,
       totalPrice,
+      paymentType: "cart",
     },
   });
 

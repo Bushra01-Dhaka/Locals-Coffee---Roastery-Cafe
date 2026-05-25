@@ -1,5 +1,4 @@
 import { useQuery } from "@tanstack/react-query";
-import useAuth from "../../Hook/useAuth";
 import useAxiosSecure from "../../Hook/useAxiosSecure";
 import {
   HiOutlineMail,
@@ -7,6 +6,7 @@ import {
   HiOutlineUser,
   HiOutlineShieldCheck,
 } from "react-icons/hi";
+import useAuth from "../../Hook/useAuth";
 
 const Account = () => {
   const { user } = useAuth();
@@ -17,7 +17,7 @@ const Account = () => {
     queryKey: ["userInfo", user?.email],
     enabled: !!user?.email,
     queryFn: async () => {
-      const res = await axiosSecure.get(`/users/${user?.email}`);
+      const res = await axiosSecure.get(`/user/${user?.email}`);
       return res.data;
     },
   });
@@ -30,6 +30,7 @@ const Account = () => {
     );
   }
 
+   console.log("User Data: ", userInfo)
   return (
     <section className="text-white">
       {/* PAGE TITLE */}
@@ -44,7 +45,11 @@ const Account = () => {
       </div>
 
       {/* PROFILE CARD */}
-      <div className="bg-[#111] border border-white/10 rounded-3xl p-6 md:p-10">
+      {
+        userInfo.map((item) => 
+            <div 
+            key={item?._id}
+            className="bg-[#111] border border-white/10 rounded-3xl p-6 md:p-10">
         {/* TOP SECTION */}
         <div className="flex flex-col lg:flex-row lg:items-center gap-8">
           {/* PROFILE IMAGE */}
@@ -62,7 +67,7 @@ const Account = () => {
           {/* USER INFO */}
           <div className="flex-1">
             <h2 className="text-2xl md:text-4xl font-semibold">
-              {user?.displayName || userInfo?.name || "Coffee Lover"}
+              {user?.displayName || item?.name || "Coffee Lover"}
             </h2>
 
             <p className="text-white/50 mt-2 break-all">
@@ -71,7 +76,7 @@ const Account = () => {
 
             <div className="mt-5 flex flex-wrap gap-3">
               <span className="bg-white/10 px-4 py-2 rounded-full text-sm uppercase">
-                {userInfo?.role || "User"}
+                {item?.role || "User"}
               </span>
 
               <span className="bg-green-500/10 text-green-400 px-4 py-2 rounded-full text-sm">
@@ -92,7 +97,7 @@ const Account = () => {
             </div>
 
             <p className="text-white/70">
-              {user?.displayName || userInfo?.name || "Not Added"}
+              {user?.displayName || item?.name || "Not Added"}
             </p>
           </div>
 
@@ -118,7 +123,7 @@ const Account = () => {
             </div>
 
             <p className="text-white/70 capitalize">
-              {userInfo?.role || "user"}
+              {item?.role || "user"}
             </p>
           </div>
 
@@ -131,13 +136,20 @@ const Account = () => {
             </div>
 
             <p className="text-white/70">
-              {userInfo?.createdAt
-                ? new Date(userInfo.createdAt).toLocaleDateString()
-                : "N/A"}
+            {
+               new Date(item?.createdAt).toLocaleDateString()
+            }
             </p>
           </div>
         </div>
       </div>
+
+        )
+      }
+     
+
+
+
     </section>
   );
 };

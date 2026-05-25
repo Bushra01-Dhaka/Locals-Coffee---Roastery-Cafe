@@ -22,6 +22,7 @@ const GiftCard = () => {
       state:{
         giftCard: giftCardData,
         totalPrice: amount,
+        paymentType: "giftcard",
       }
      })
 

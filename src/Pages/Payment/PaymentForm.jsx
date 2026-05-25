@@ -8,7 +8,7 @@ import Swal from "sweetalert2";
 
 const PaymentPage = () => {
   const { state } = useLocation();
-  const { cart, totalPrice, giftCard } = state || {};
+  const { cart, totalPrice, giftCard, paymentType } = state || {};
 
   const stripe = useStripe();
   const elements = useElements();
@@ -49,60 +49,58 @@ const PaymentPage = () => {
     }
 
     if (paymentIntent.status === "succeeded") {
-      // ✅ SAVE ORDER HERE
-      const orderData = {
-        email: user.email,
-        items: cart,
-        totalPrice,
-        transactionId: paymentIntent.id,
-        createdAt: new Date(),
-      };
 
-      await axiosSecure.post("/cart", orderData);
+      // Cart Payment 
+      
+      if (paymentType === "cart") {
+        const orderData = {
+          email: user.email,
+          items: cart,
+          totalPrice,
+          transactionId: paymentIntent.id,
+          createdAt: new Date(),
+        };
 
-      Swal.fire({
-        position: "top-center",
-        icon: "success",
-        title: "Payment Successful 🎉",
-        showConfirmButton: false,
-        timer: 1500,
-      });
+        await axiosSecure.post("/cart", orderData);
 
+        Swal.fire({
+          position: "top-center",
+          icon: "success",
+          title: "Payment Successful 🎉",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+      }
 
+      // Giftycard Payment
 
+      if (paymentType === "giftCard") {
+        const createdAt = new Date();
 
+        const validUntil = new Date();
+        validUntil.setMonth(validUntil.getMonth() + 1);
 
-      // Giftycard Payment 
+        const giftCardPayload = {
+          ...giftCard,
+          email: user?.email,
+          totalPrice,
+          transactionId: paymentIntent.id,
+          createdAt,
+          validUntil,
+        };
 
-      const createdAt = new Date();
+        // 🔥 send to backend
+        await axiosSecure.post("/giftcard", giftCardPayload);
 
-  const validUntil = new Date();
-  validUntil.setMonth(validUntil.getMonth() + 1);
+        Swal.fire({
+          icon: "success",
+          title: "Gift Card Sent 🎁",
+          timer: 1500,
+          showConfirmButton: false,
+        });
+      }
 
-  const giftCardPayload = {
-    ...giftCard,
-    email: user?.email,
-    totalPrice,
-    transactionId: paymentIntent.id,
-    createdAt,
-    validUntil,
-  };
-
-  // 🔥 send to backend
-  await axiosSecure.post("/giftcard", giftCardPayload);
-
-  Swal.fire({
-    icon: "success",
-    title: "Gift Card Sent 🎁",
-    timer: 1500,
-    showConfirmButton: false,
-  });
-
-
-
-    //  giftcard payment ends 
-
-
+      //  giftcard payment ends
     }
   };
 
