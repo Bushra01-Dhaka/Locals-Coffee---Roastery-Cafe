@@ -3,11 +3,25 @@ import { HiMenu, HiX } from "react-icons/hi";
 import { Link } from "react-router";
 import logo from "../assets/logo.webp";
 import useAuth from "../Hook/useAuth";
+import useAxiosSecure from "../Hook/useAxiosSecure";
+import { useQuery } from "@tanstack/react-query";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
   const { user, logOut } = useAuth();
   const [profileOpen, setProfileOpen] = useState(false);
+  const axiosSecure = useAxiosSecure();
+
+  const {data: userData = []} = useQuery({
+    queryKey:["user", user?.email],
+    enabled: !!user?.email,
+    queryFn: async() => {
+      const res = await axiosSecure.get(`/user/${user?.email}`);
+      res.data;
+    }
+  })
+
+  console.log("Role: ", userData?.role)
 
   const handleLogOut = () => {
     logOut()
@@ -70,13 +84,23 @@ const Navbar = () => {
                     >
                      {user?.displayName}
                     </Link>
-                    <Link
+
+                   
+                     <Link
                       to="/dashboard"
                       className="block px-4 py-3 text-sm hover:bg-white hover:text-black transition"
                       onClick={() => setProfileOpen(false)}
                     >
                       Dashboard
                     </Link>
+
+                    {/* <Link
+                      to="/dashboard"
+                      className="block px-4 py-3 text-sm hover:bg-white hover:text-black transition"
+                      onClick={() => setProfileOpen(false)}
+                    >
+                      Dashboard
+                    </Link> */}
 
                     <button
                       onClick={() => {

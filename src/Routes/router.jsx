@@ -20,6 +20,8 @@ import UserDash from "../Components/DashComponent/UserDash";
 import UserOrder from "../Components/DashComponent/UserOrder";
 import UserGiftCard from "../Components/DashComponent/userGiftCard";
 import Account from "../Components/DashComponent/Account";
+import AdminDashboard from "../Pages/Dashboard/AdminDashboard";
+import AdminDash from "../Components/DashComponent/AdminDash";
 
 const router = createBrowserRouter([
   {
@@ -103,6 +105,16 @@ const router = createBrowserRouter([
     path: "/userDashboard",
     Component: UserDashboard,
   },
+  {
+    path:"/adminDashboard",
+    Component: AdminDashboard,
+    children: [
+      {
+        path:"",
+        Component: AdminDash,
+      }
+    ]
+  }
 ]);
 
 export default router;
